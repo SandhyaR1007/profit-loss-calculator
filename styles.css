@@ -1,0 +1,53 @@
+:root {
+  --primary-color: #be2edd;
+  --secondary-color: #fff;
+  --dark-pink: #ad49c4;
+  --light-pink: rgba(246, 202, 255, 0.4);
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: var(--light-pink);
+}
+header {
+  margin: 2rem 0rem;
+}
+.label {
+  display: block;
+  font-size: 1.5rem;
+  margin: 2rem 0;
+  font-weight: bold;
+}
+.input {
+  padding: 0.8rem;
+  display: block;
+  margin: 1.2rem auto;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 350px;
+  border: 2px solid var(--primary-color);
+  outline: none;
+  font-size: 1.2rem;
+}
+button {
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary-color);
+  border: none;
+  font-size: large;
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+button:hover {
+  background-color: var(--dark-pink);
+}
+#output-div {
+  color: var(--dark-pink);
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
