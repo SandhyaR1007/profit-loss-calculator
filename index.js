@@ -8,15 +8,22 @@ let calculate = () => {
   let sp = currentPrice.value;
   let quantity = stocks.value;
   console.log(cp, sp, quantity);
+  let totalCp = Number(cp) * Number(quantity);
+  let totalSp = Number(sp) * Number(quantity);
+  console.log(totalCp);
+  console.log(cp, sp, quantity);
   if (cp == "" || sp == "" || quantity == "") {
     outputDiv.style.color = "";
     outputDiv.innerHTML = "Please fill all the fields 🤨";
-  } else if (sp > cp) {
+  } else if (Number(quantity) < 0) {
+    outputDiv.style.color = "";
+    outputDiv.innerHTML = "Number of stocks cannot be negative";
+  } else if (totalSp > totalCp) {
     console.log("profit");
-    profitPercent(cp, sp);
-  } else if (cp > sp) {
+    profitPercent(totalCp, totalSp);
+  } else if (totalCp > totalSp) {
     console.log("loss");
-    lossPercent(cp, sp);
+    lossPercent(totalCp, totalSp);
   } else {
     outputDiv.style.color = "";
     outputDiv.innerHTML = "Neither gain nor loss 🙃";
