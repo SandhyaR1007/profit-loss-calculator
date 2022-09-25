@@ -1,41 +1,44 @@
-calculate = () => {
-  let cp = document.querySelector("input[name=initial-price]").value;
-  let sp = document.querySelector("input[name=current-price]").value;
-  let quantity = document.querySelector("input[name=quantity]").value;
-  cp = cp * quantity;
-  sp = sp * quantity;
-  console.log(cp, sp);
+let initialPrice = document.querySelector("#initial-price");
+let currentPrice = document.querySelector("#current-price");
+let stocks = document.querySelector("#quantity");
+let calculateBtn = document.querySelector(".btn-calculate");
+let outputDiv = document.querySelector("#output-div");
+let calculate = () => {
+  let cp = initialPrice.value;
+  let sp = currentPrice.value;
+  let quantity = stocks.value;
+  console.log(cp, sp, quantity);
   if (cp == "" || sp == "" || quantity == "") {
-    document.getElementById("output-div").innerHTML =
-      "Please fill all the fields";
-    return;
-  }
-  if (sp > cp) {
+    outputDiv.style.color = "";
+    outputDiv.innerHTML = "Please fill all the fields 🤨";
+  } else if (sp > cp) {
     console.log("profit");
-    window.profitPercent(cp, sp);
+    profitPercent(cp, sp);
   } else if (cp > sp) {
     console.log("loss");
-    window.lossPercent(cp, sp);
+    lossPercent(cp, sp);
   } else {
-    document.getElementById("output-div").innerHTML = "Neither gain nor loss";
+    outputDiv.style.color = "";
+    outputDiv.innerHTML = "Neither gain nor loss 🙃";
   }
 };
-profitPercent = (cp, sp) => {
+let profitPercent = (cp, sp) => {
   let profit = sp - cp;
   let profitPrcnt = (profit / cp) * 100;
   profitPrcnt = profitPrcnt.toFixed(2);
   console.log(profitPrcnt);
-  document.getElementById(
-    "output-div"
-  ).innerHTML = `Yayy!! you got a profit of ${profitPrcnt}%`;
+  outputDiv.style.color = "green";
+
+  outputDiv.innerHTML = `Yayy!! you got a profit of ${profit} and the percentage is ${profitPrcnt}% 🤑`;
 };
 
-lossPercent = (cp, sp) => {
+let lossPercent = (cp, sp) => {
   let loss = cp - sp;
   let lossPrcnt = (loss / cp) * 100;
   lossPrcnt = lossPrcnt.toFixed(2);
   console.log(lossPrcnt);
-  document.getElementById(
-    "output-div"
-  ).innerHTML = `Ahh!! you got a loss of ${lossPrcnt}%`;
+  outputDiv.style.color = "red";
+  outputDiv.innerHTML = `Ahh !!  you got a loss of ${loss} and the percentage is ${lossPrcnt}% 😓`;
 };
+
+calculateBtn.addEventListener("click", calculate);

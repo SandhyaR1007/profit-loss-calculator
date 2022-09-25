@@ -14,7 +14,7 @@ body {
   text-align: center;
   background-color: var(--light-pink);
 }
-header {
+.header {
   margin: 2rem 0rem;
 }
 .label {
@@ -34,7 +34,7 @@ header {
   outline: none;
   font-size: 1.2rem;
 }
-button {
+.btn-calculate {
   padding: 1rem 2rem;
   border-radius: 0.5rem;
   background-color: var(--primary-color);
@@ -43,7 +43,7 @@ button {
   color: var(--secondary-color);
   cursor: pointer;
 }
-button:hover {
+.btn-calculate:hover {
   background-color: var(--dark-pink);
 }
 #output-div {

@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <header>
+    <header class="header">
       <h1>Stock Profit & Loss Calculator</h1>
     </header>
     <main>
@@ -29,6 +29,7 @@
           placeholder="Enter the Number of Stocks bought"
           id="quantity"
           name="quantity"
+          min="0"
       /></label>
       <label class="label"
         >Current Price
@@ -41,7 +42,7 @@
         />
       </label>
 
-      <button onclick="calculate();">Tell me</button>
+      <button class="btn-calculate">Tell me</button>
       <div id="output-div"></div>
     </main>
     <script src="./index.js"></script>
